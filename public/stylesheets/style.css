@@ -2,3 +2,7 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+
+.breadcrumb-item {
+  font-size: 18px;
+}
