@@ -1,6 +1,7 @@
 // Requiring our models and passport as we've configured it
 var db = require('../models');
 var passport = require('../config/passport');
+var axios = require("axios");
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -118,6 +119,49 @@ console.log(req.params.id);
     res.json(results);
   });
 });
+
+
+
+// api calling OMDB
+app.get("/api/home/movies", function(req, res) {
+  
+  getMovie();
+
+  async function getMovie() {
+    try {
+      const moviesArray = [
+        "Intolerant",
+        "Elvis from Outer Space",
+        "Group Therapy",
+        "The Beach House",
+        "Endgame",
+        "The Old Guard",
+        "Parallax",
+        "Greyhound",
+        "Ghost",
+        "Archive",
+        "We Are One",
+        "The Players",
+        "The Sandman", 
+        "Saint Maud", 
+        "Radioactive", 
+        "The Informer", 
+        "Unhinged"];
+      const moviesArrayLenght = moviesArray.length;
+      const hbsObject = []
+      for (let i = 0; i < moviesArrayLenght; i++) {
+      const { data } = await axios.get(
+        `https://www.omdbapi.com/?t=${moviesArray[i]}&apikey=trilogy`
+      )
+      hbsObject.push(data);
+      console.log(hbsObject);
+    }
+
+      return res.json(hbsObject);
+
+    } catch (err) {
+      console.log(err);
+    }
+  }
+});
 };
-
-
