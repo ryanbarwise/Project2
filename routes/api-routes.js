@@ -1,7 +1,7 @@
 // Requiring our models and passport as we've configured it
 var db = require('../models');
 var passport = require('../config/passport');
-var axios = require("axios");
+var axios = require('axios');
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -45,39 +45,32 @@ module.exports = function(app) {
     } else {
       // get movies associated with the user
       //db.User.findOne({where: {id: req.user.id}, include: {model: db.Movie, as: "Movies"}}).then(user => {
-       // movies = user.Movies
+      // movies = user.Movies
       //})
-      db.Movies.findAll({where: {userID: req.user.id}}).then( movies => {
-
+      db.UserMovies.findAll({ where: { userID: req.user.id } }).then((movies) => {
         res.json({
           email: req.user.email,
           id: req.user.id,
           movies,
         });
-      })
+      });
     }
   });
- 
-
- 
-
-
-
 
   // Add a movie
   app.post('/api/new', function(req, res) {
-    if(!req.user){
-      res.json({})
+    if (!req.user) {
+      res.json({});
     } else {
       const movieParams = req.body;
 
       console.log('Movie Data:');
       console.log(req.body);
-      db.Movies.create({
+      db.UserMovies.create({
         // title: req.body.title,
         // year: req.body.year,
         // genre: req.body.genre,
-        ...movieParams,  //..save content of object instead of setting object to specific key
+        ...movieParams, //..save content of object instead of setting object to specific key
         userID: req.user.id,
       }).then(function(results) {
         res.json(results);
@@ -89,79 +82,72 @@ module.exports = function(app) {
   app.delete('/api/movie/:id', function(req, res) {
     console.log('movie ID:');
     console.log(req.params.id);
-    if(req.user){
-
-      db.Movies.destroy({
+    if (req.user) {
+      db.UserMovies.destroy({
         where: {
           id: req.params.id,
-          userID: req.user.id
+          userID: req.user.id,
         },
       }).then(function() {
         res.end();
       });
     } else {
-      res.end()
+      res.end();
     }
   });
 
-
-app.put("/api/movie/:id", function(req, res) {
-console.log("movie ID:") 
-console.log(req.params.id);
- db.Movies.update(
-    req.body,
-    {
+  app.put('/api/movie/:id', function(req, res) {
+    console.log('movie ID:');
+    console.log(req.params.id);
+    db.UserMovies.update(req.body, {
       where: {
-        id: req.body.id,
-        userID: req.params.id,
-      }
+        id: req.params.id,
+        userID: req.user.id,
+      },
     }).then(function(results) {
-    res.json(results);
+      res.json(results);
+    });
   });
-});
 
+  // api calling OMDB
+  app.get('/api/home/movies', function(req, res) {
+    getMovie();
 
+    async function getMovie() {
+      try {
+        const moviesArray = [
+          'Intolerant',
+          'Elvis from Outer Space',
+          'Group Therapy',
+          'The Beach House',
+          'Endgame',
+          'The Old Guard',
+          'Parallax',
+          'Greyhound',
+          'Ghost',
+          'Archive',
+          'We Are One',
+          'The Players',
+          'The Sandman',
+          'Saint Maud',
+          'Radioactive',
+          'The Informer',
+          'Unhinged',
+        ];
+        const moviesArrayLenght = moviesArray.length;
+        const hbsObject = [];
+        for (let i = 0; i < moviesArrayLenght; i++) {
+          const { data } = await axios.get(
+            `https://www.omdbapi.com/?t=${moviesArray[i]}&apikey=trilogy`
+          );
+          hbsObject.push(data);
+          console.log(hbsObject);
+        }
 
-// api calling OMDB
-app.get("/api/home/movies", function(req, res) {
-  
-  getMovie();
-
-  async function getMovie() {
-    try {
-      const moviesArray = [
-        "Intolerant",
-        "Elvis from Outer Space",
-        "Group Therapy",
-        "The Beach House",
-        "Endgame",
-        "The Old Guard",
-        "Parallax",
-        "Greyhound",
-        "Ghost",
-        "Archive",
-        "We Are One",
-        "The Players",
-        "The Sandman", 
-        "Saint Maud", 
-        "Radioactive", 
-        "The Informer", 
-        "Unhinged"];
-      const moviesArrayLenght = moviesArray.length;
-      const hbsObject = []
-      for (let i = 0; i < moviesArrayLenght; i++) {
-      const { data } = await axios.get(
-        `https://www.omdbapi.com/?t=${moviesArray[i]}&apikey=trilogy`
-      )
-      hbsObject.push(data);
-      console.log(hbsObject);
+        return res.json(hbsObject);
+      } catch (err) {
+        console.log(err);
+      }
     }
-
-      return res.json(hbsObject);
-
-    } catch (err) {
-      console.log(err);
-    }
-  }
-});
+  });
 };
