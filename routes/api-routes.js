@@ -141,7 +141,7 @@ module.exports = function(app) {
             `https://www.omdbapi.com/?t=${moviesArray[i]}&apikey=trilogy`
           );
           hbsObject.push(data);
-          console.log(hbsObject);
+          // console.log(hbsObject);
         }
 
         return res.json(hbsObject);

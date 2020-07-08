@@ -11,21 +11,60 @@
 
 <body>
   <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/logout">
-        Logout
-      </a>
-    </div>
-  </div>
-</nav>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Welcome <span class="member-name"></span></h2>
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/logout">
+          Logout
+        </a>
       </div>
     </div>
-  </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <h2>Welcome <span class="member-name"></span></h2>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <!-- Search form -->
+        <form class="col-md-4 ml-auto">
+          <input class="form-control form-control-sm mr-3 w-75" id="user-input" type="text" placeholder="Search"
+            aria-label="Search">
+          <i class="fas fa-search" aria-hidden="true"></i>
+          <button id="search-form">Search</button>
+        </form>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row row-cols-6 row-cols-md-5">
+        <div class="col mb-4">
+          <div class="card">
+          </div>
+        </div>
+      </div>
+      <div class="row row-cols-6 row-cols-md-5">
+        <form>
+          <div id="watched-check" class="form-group"></div>
+        </form>
+      </div>
+      <div>
+        <form>
+          <div id="user-reco" class="form-group"></div>
+        </form>
+      </div class="form-group">
+      <div id="save-button"></div>
+    </div>
+
+  </main>
+
+  <footer class="container">
+    <p class="float-right"><a href="#">Back to top</a></p>
+    <p>&copy; 2020 writen by Aaron, Demetrio, Ryan &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+  </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/members.js"></script>
