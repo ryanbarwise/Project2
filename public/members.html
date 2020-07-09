@@ -6,6 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="stylesheets/style.css" rel="stylesheet">
 </head>
 
@@ -13,11 +14,13 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
+        <a class="navbar-brand" href="./home.html">
+          Home
+        </a>
         <a class="navbar-brand" href="/logout">
           Logout
         </a>
-      </div>
-    </div>
+        
   </nav>
 
   <main>
@@ -59,6 +62,19 @@
       <div id="save-button"></div>
     </div>
 
+    <div class="row">
+      <div class="col-lg-12">
+
+        <!-- Current Tables in Use -->
+        <div class="card">
+          <div class="card-header">
+            <h4>&raquo;My Movies&raquo;</h4>
+          </div>
+          <div class="card-body">
+            <ul id="tableList" class="list-group"></ul>
+          </div>
+        </div>
+
   </main>
 
   <footer class="container">
@@ -67,6 +83,7 @@
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery.js"></script>
   <script type="text/javascript" src="js/members.js"></script>
 
 </body>
