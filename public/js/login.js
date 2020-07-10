@@ -33,7 +33,18 @@ $(document).ready(() => {
         // If there's an error, log the error
       })
       .catch(err => {
-        console.log(err);
+       let text = err.responseText
+        if (text){
+          console.log(err.responseText);
+          switch (text){
+            case "Unauthorized":
+              text = "Email or password is not valid."
+          }
+          $('#alert .msg').text(text)
+        } else {
+          $('#alert .msg').text(JSON.stringify(err));
+        }
+        $('#alert').fadeIn(500);
       });
   }
 });
