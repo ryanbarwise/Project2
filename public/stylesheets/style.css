@@ -6,3 +6,24 @@ form.login {
 .breadcrumb-item {
   font-size: 18px;
 }
+
+.card {
+  height: 500px;
+  overflow: auto;
+  margin-top: 20px;
+}
+
+.hot {
+  color: red;
+}
+
+
+.blink_me {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
