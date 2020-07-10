@@ -5,8 +5,12 @@
   <title>Passport Authentication</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="stylesheets/style.css" rel="stylesheet">
   <link href="stylesheets/style.css" rel="stylesheet">
 </head>
 
@@ -20,7 +24,6 @@
         <a class="navbar-brand" href="/logout">
           Logout
         </a>
-        
   </nav>
 
   <main>
@@ -37,12 +40,25 @@
         <form class="col-md-4 ml-auto">
           <input class="form-control form-control-sm mr-3 w-75" id="user-input" type="text" placeholder="Search"
             aria-label="Search">
-          <i class="fas fa-search" aria-hidden="true"></i>
           <button id="search-form">Search</button>
         </form>
       </div>
     </div>
     <div class="container">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+  
+            <!-- Current Tables in Use -->
+            <div class="card">
+              <div class="card-header">
+                <h4>&raquo;Search&raquo;</h4>
+              </div>
+              <div class="card-body">
+                <ul id="search-new" class="list-group"></ul>
+              </div>
+            </div>
+          </div>
       <div class="row row-cols-6 row-cols-md-5">
         <div class="col mb-4">
           <div class="card">
@@ -62,16 +78,18 @@
       <div id="save-button"></div>
     </div>
 
-    <div class="row">
-      <div class="col-lg-12">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
 
-        <!-- Current Tables in Use -->
-        <div class="card">
-          <div class="card-header">
-            <h4>&raquo;My Movies&raquo;</h4>
-          </div>
-          <div class="card-body">
-            <ul id="tableList" class="list-group"></ul>
+          <!-- Current Tables in Use -->
+          <div id="user" class="card">
+            <div class="card-header">
+              <h4>&raquo;My Movies&raquo;</h4>
+            </div>
+            <div class="card-body">
+              <ul id="tableList" class="list-group"></ul>
+            </div>
           </div>
         </div>
 
@@ -83,7 +101,7 @@
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/members.js"></script>
 
 </body>
