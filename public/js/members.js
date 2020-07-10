@@ -111,7 +111,7 @@ function runTableQuery() {
 runTableQuery();
 
 
-$("#user").on("click",".delete-btn", function (event) {
+$("#user").on("click", ".delete-btn", function (event) {
   let movieId = $(this).data("id");
   console.log(movieId);
   console.log("delete work");
