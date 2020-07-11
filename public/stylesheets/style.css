@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 form.signup,
 form.login {
   margin-top: 50px;
@@ -7,23 +11,95 @@ form.login {
   font-size: 18px;
 }
 
+.jumbotron {
+  background-image: url('movie.jpg');
+  border-radius: 0;
+  overflow: auto;
+}
+
 .card-home {
-  height: 500px;
+  height: 850px;
   overflow: auto;
   margin-top: 20px;
+  border-color: black;
+  border-width: 3px;
+  border-style: solid;
 }
 
 .hot {
   color: red;
 }
 
+.view {
+  position: absolute;
+  bottom: 10px;
+}
 
 .blink_me {
   animation: blinker 1s linear infinite;
 }
 
 @keyframes blinker {
-  50% {
+  100% {
     opacity: 0;
+  }
+}
+
+.home-footer {
+  margin-top: 20px;
+  background-color: rgb(51,59,63);
+  height: 70px;
+  padding: 20px;
+  margin-top: 50px;
+  color: white;
+}
+
+.intro {
+  font-family: 'Josefin Slab', serif;
+  color: white;
+  font-weight: lighter;
+
+  width: 45%;
+  float: right;
+  line-height: 200%;
+  padding-top: 25px;
+  font-size: 20px;
+  background-color: black;
+  padding: 10px;
+}
+
+
+.card-img-top {
+  border-radius: 0;
+}
+
+.home-h1 {
+  padding-top: 0px;
+}
+
+.home-main {
+  clear: both;
+}
+
+#intro h1,
+#intro p {
+  display: inline;
+  vertical-align: top;
+}
+
+@media only screen and (max-width: 600px) {
+  .intro {
+    width: 100%;
+  }
+
+  .view {
+    position: relative;
+    bottom: 2px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .card-5 {
+    display: none;
   }
 }
