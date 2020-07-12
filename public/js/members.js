@@ -54,7 +54,7 @@ $("#search-form").on("click", function (event) {
       $("<br>"),
       $(`<input class="user-rating" placeholder="Enter your rating: 0 - 10">`),
       $(`<textarea class="user-notes" rows="5" placeholder="Give your toughts">`),
-      $(`<button id="save-btn">`).text("Save")
+      $(`<button class="btn btn-primary btn-sm header-buttons" id="save-btn">`).text("Save")
     );
 
     tableList.append(listItem);

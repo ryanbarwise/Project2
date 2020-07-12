@@ -42,6 +42,15 @@ form.login {
   overflow: auto;
 }
 
+#body-members {
+  background-image: url('movie.jpg');
+  border-radius: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
 .card-home {
   height: 850px;
   overflow: hidden;

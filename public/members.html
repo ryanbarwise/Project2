@@ -14,8 +14,9 @@
   <link href="stylesheets/style.css" rel="stylesheet">
 </head>
 
-<body>
-  <nav class="navbar navbar-default">
+<body id="body-members">
+
+  <nav class="navbar navbar-dark">
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="./home.html">
@@ -27,23 +28,30 @@
   </nav>
 
   <main>
+
     <div class="container">
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
-          <h2>Welcome <span class="member-name"></span></h2>
+          <h2 style="color: red; opacity: 80%;">Welcome <span class="member-name"></span></h2>
         </div>
       </div>
     </div>
-    <div class="container">
-      <div class="row">
-        <!-- Search form -->
+
+    <div class="container" id="intro">
+      <div>
+        <h1 class="display-1 home-h1"><span class='hot blink_me'>Hot</span>Screen</h1>
+      </div>
+      <div>
+        </br>
         <form class="col-md-4 ml-auto">
-          <input class="form-control form-control-sm mr-3 w-75" id="user-input" type="text" placeholder="Enter a movie name"
-            aria-label="Search">
-          <button id="search-form">Search</button>
+          <input class="form-control form-control-sm mr-3 w-75" id="user-input" type="text"
+            placeholder="Enter a movie name" aria-label="Search">
+          <br>
+          <button class="btn btn-primary btn-lg header-buttons" id="search-form">Search</button>
         </form>
       </div>
     </div>
+
     <div class="container">
       <div class="container">
         <div class="row">
@@ -84,7 +92,7 @@
               <!-- Current Tables in Use -->
               <div id="user" class="card">
                 <div class="card-header">
-                  <h4>&raquo; Watched movies &raquo;</h4>
+                  <h4 style="text-align: center;">&raquo; Movies that I have watched 🍿 🎥</h4>
                 </div>
                 <div class="card-body">
                   <ul id="watched-movies" class="list-group"></ul>
@@ -100,7 +108,7 @@
               <!-- Current Tables in Use -->
               <div id="user1" class="card">
                 <div class="card-header">
-                  <h4>&raquo; Want to watch &raquo;</h4>
+                  <h4 style="text-align: center;">&raquo; Movies that I haven't seen yet &raquo;</h4>
                 </div>
                 <div class="card-body">
                   <ul id="want-to-watch" class="list-group"></ul>
@@ -114,7 +122,8 @@
 
   <footer class="container">
     <p class="float-right"><a href="#">Back to top</a></p>
-    <p>&copy; 2020 writen by Aaron, Demetrio, Ryan &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    <p style="color: whitesmoke;">&copy; 2020 writen by Aaron Peabody, Demetrio Almeida, Ryan Barwise &middot; <a
+        href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
