@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Passport Authentication</title>
+  <title>Your Movies Page</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -38,7 +38,7 @@
       <div class="row">
         <!-- Search form -->
         <form class="col-md-4 ml-auto">
-          <input class="form-control form-control-sm mr-3 w-75" id="user-input" type="text" placeholder="Search"
+          <input class="form-control form-control-sm mr-3 w-75" id="user-input" type="text" placeholder="Enter a movie name"
             aria-label="Search">
           <button id="search-form">Search</button>
         </form>
@@ -48,47 +48,64 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-  
+
             <!-- Current Tables in Use -->
-            <div class="card">
+            <div class="card" id="search-result">
               <div class="card-header">
-                <h4>&raquo;Search&raquo;</h4>
+                <h3 id="movie-name"></h3>
               </div>
               <div class="card-body">
                 <ul id="search-new" class="list-group"></ul>
               </div>
             </div>
           </div>
-      <div class="row row-cols-6 row-cols-md-5">
-        <div class="col mb-4">
-          <div class="card">
+          <div class="row row-cols-6 row-cols-md-5">
+            <div class="col mb-4">
+              <div class="card">
+              </div>
+            </div>
+          </div>
+          <div class="row row-cols-6 row-cols-md-5">
+            <form>
+              <div id="watched-check" class="form-group"></div>
+            </form>
+          </div>
+          <div>
+            <form>
+              <div id="user-reco" class="form-group"></div>
+            </form>
+          </div class="form-group">
+          <div id="save-button"></div>
+        </div>
+
+        <div class="container" id="yw">
+          <div class="row">
+            <div class="col-lg-12">
+              <!-- Current Tables in Use -->
+              <div id="user" class="card">
+                <div class="card-header">
+                  <h4>&raquo; Watched movies &raquo;</h4>
+                </div>
+                <div class="card-body">
+                  <ul id="watched-movies" class="list-group"></ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row row-cols-6 row-cols-md-5">
-        <form>
-          <div id="watched-check" class="form-group"></div>
-        </form>
-      </div>
-      <div>
-        <form>
-          <div id="user-reco" class="form-group"></div>
-        </form>
-      </div class="form-group">
-      <div id="save-button"></div>
-    </div>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-
-          <!-- Current Tables in Use -->
-          <div id="user" class="card">
-            <div class="card-header">
-              <h4>&raquo;My Movies&raquo;</h4>
-            </div>
-            <div class="card-body">
-              <ul id="tableList" class="list-group"></ul>
+        <div class="container" id="nw">
+          <div class="row">
+            <div class="col-lg-12">
+              <!-- Current Tables in Use -->
+              <div id="user1" class="card">
+                <div class="card-header">
+                  <h4>&raquo; Want to watch &raquo;</h4>
+                </div>
+                <div class="card-body">
+                  <ul id="want-to-watch" class="list-group"></ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>

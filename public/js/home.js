@@ -17,7 +17,7 @@ function renderMovies(data) {
   for (let i = 0; i < 5; i++) {
     // console.log(data[i].Poster);
     const randomNumber = Math.floor(Math.random() * 18);
-    console.log(randomNumber);
+    // console.log(randomNumber);
     $("#poster" + i).attr("src", data[randomNumber].Poster);
     $("#moviename" + i).text(data[randomNumber].Title);
     $("#actors" + i).text("Actors: " + data[randomNumber].Actors);
@@ -27,15 +27,6 @@ function renderMovies(data) {
     $("#link" + i).attr("href", "https://www.imdb.com/title/" + data[randomNumber].imdbID + "/?ref_=nv_sr_srsg_0")
   }
 }
-
-
-
-
-
-
-
-
-
 
 // eslint-disable-next-line no-unused-vars
 $("#unic").on("click", function(_event) {
